@@ -46,7 +46,9 @@ def valid_proof(last_hash, proof):
     """
 
     # TODO: Your code here!
-    pass
+    hash_to_validate = hashlib.sha3_256(str(proof).encode()).hexdigest()
+
+    return hash_to_validate[:6] == hash_to_validate[-6:]
 
 if __name__ == '__main__':
     # What node are we interacting with?
