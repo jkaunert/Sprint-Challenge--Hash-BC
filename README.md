@@ -23,12 +23,27 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 ## Interview Questions
 
 Explain in detail the workings of a dynamic array:
+	A dynamic array is an improved array with automatic re-sizing. Since arrays are of fixed size, we must declare the total number of elemenets that the array will hold. With dynamic arrays, an underlying standard array of size `n` is created to hold `n` elements.  when element `e` is added such that `n + e == n`, a new double sized underlying array is created with `n * 2` size and the `n` elements are copied over to th new array. 
+
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
-* What is the worse case scenario if you try to extend the storage size of a dynamic array?
+	- access an array: same as an array, O(1)
+	- add to front: O(n)
+	- add to back: average O(1), worst-case O(n)
+	
+
+* What is the worse case scenario if you try to extend the storage size of a dynamic array? 
+
+- technically, it's O(n) when creating a new array and copying over, but since the cost of each expansion doubles every time _and_ you get double the appends before the array needs to expand again, these two "cancel" each other out and we can look at the average time (also callerd amortized cost) of O(1)
 
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+
+- the blockchain is a decentralized distributed database (chain) of immutable records (blocks), similar to a linked list.  Basically, each "block" contains transaction data (a timestamp, transaction history), proof (for later validation of proof-of-work used to mine the block), an index, and a sha256 hashed pointer to the previous block.) What makes the chain so secure, is that you cannot remove or change any block without also altering the hashes.
  
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+- "Proof of work" is a consensus algorithm used to confirm transactions and add blocks to the blockchain.  Basically, given an incredibly hard brute-force computation problem to solve individually, it is distributed among a pool of miners, who "compete" against each other to coplete the transactions and get the "reward"/miners fee. 
+
+- the idea is that this protects the chain because you would need to have over 50% of the mining to write "ahead" of the rest of the miners. While this is pretty much impossible to do individually/without a quantum computer, the risk is certainly much greater from large mining pools around the globe.
 
 ## Project Set Up
 
