@@ -24,7 +24,7 @@ def proof_of_work(last_proof):
 
     print("Searching for next proof")
     #  TODO: Your code here
-    proof = random.SystemRandom().randint(-666666666, 666666666)
+    proof = random.SystemRandom().randint(-26666666666, -13333333333)
 
     last_hash = hashlib.sha256(str(last_proof).encode()).hexdigest()
 
@@ -54,8 +54,8 @@ if __name__ == '__main__':
     # if len(sys.argv) > 1:
     #     node = sys.argv[1]
     # else:
-    node = "https://lambda-coin.herokuapp.com/api"
-    # node = "https://lambda-coin-test-1.herokuapp.com/api"
+    # node = "https://lambda-coin.herokuapp.com/api"
+    node = "https://lambda-coin-test-1.herokuapp.com/api"
 
     coins_mined = 0
 
